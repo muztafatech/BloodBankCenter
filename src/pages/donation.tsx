@@ -4,7 +4,7 @@ import Header from '../../components/Header';
 import Call from '../../public/call.svg';
 import Email from '../../public/email.svg';
 
-const contact = () => {
+const DonationP = () => {
   return (
     <div>
       <Header />
@@ -12,7 +12,7 @@ const contact = () => {
       <div className="flex justify-center align-middle items-center">
         <div className="pt-48 w-10/12 flex flex-col justify-center m-auto">
           <h1 className=" text-white text-center base text-3xl font-bold underline">
-            La xidhiidh
+            Donation
           </h1>
 
           <div className="flex flex-col justify-center mx-auto ">
@@ -42,4 +42,4 @@ const contact = () => {
   );
 };
 
-export default contact;
+export default DonationP;

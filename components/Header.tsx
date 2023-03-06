@@ -3,19 +3,22 @@ import Link from 'next/link';
 
 const Header = () => {
   return (
-    <div className="font-body pt-7 flex items-center justify-between w-10/12 m-auto ">
-      <div>
-        <p className=" text-[#6379E5] text-lg font-bold">
-          <Link href="/">
-            Balan<span className="text-[#fff]">same</span>
-          </Link>
-        </p>
-      </div>
+    <div className="font-body bg-[#790909]/80 py-4 w-full flex items-center justify-between  m-auto ">
+      <div className="w-10/12 flex items-center justify-between  m-auto ">
+        <div>
+          <p className="text-lg font-bold">
+            <Link href="/">
+              <span className="text-[#fff] underline">BloodBank</span>
+            </Link>
+          </p>
+        </div>
 
-      <div className=" cursor-pointer text-xs text-[#fff] font-medium space-x-5 underline ">
-        <Link href="/">Home</Link>
-        <Link href="/about">About</Link>
-        <Link href="/contact">Contact</Link>
+        <div className=" cursor-pointer text-xs text-[#fff] font-medium space-x-5 underline ">
+          <Link href="/">Home</Link>
+          <Link href="/about">About</Link>
+          <Link href="/donation">Donation</Link>
+          <Link href="/bloodreq">Blood Req</Link>
+        </div>
       </div>
     </div>
   );
