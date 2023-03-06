@@ -1,7 +1,41 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import BaseLayout from '../../components/BaseLayout';
+import { db } from '../../config/firebase';
+import {
+  collection,
+  addDoc,
+  getDocs,
+  query,
+  orderBy,
+  deleteDoc,
+  doc,
+} from 'firebase/firestore';
 
 function bloodreq() {
+  const database = collection(db, 'usersreq');
+  const q = query(database, orderBy('time', 'desc'));
+  const [userData, setUserData] = useState<Array<any>>([]);
+
+  useEffect(() => {
+    // getData();
+    const getData = async () => {
+      await getDocs(q).then((res) => {
+        setUserData(
+          res.docs.map((data: any): any => {
+            return { ...data.data(), id: data.id };
+          })
+        );
+      });
+    };
+
+    getData();
+  }, []);
+
+  const handleDelete = (id: any) => {
+    let deleteOne = doc(database, id);
+    deleteDoc(deleteOne);
+  };
+
   return (
     <BaseLayout>
       <div>
@@ -47,27 +81,33 @@ function bloodreq() {
                 </th>
 
                 <th scope="col" className="px-6 py-3">
+                  Info
+                </th>
+
+                <th scope="col" className="px-6 py-3">
                   Action
                 </th>
               </tr>
             </thead>
 
             <tbody>
-              {/* {userData.map((data) => (
+              {userData.map((data) => (
                 <tr key={data.id} className=" text-[#C5C6CD] border-b text-xs">
                   <td className="px-6 py-4">01015</td>
-                  <td className="px-6 py-4">{data.name}</td>
+                  <td className="px-6 py-4">{data.date}</td>
+                  <td className="px-6 py-4">{data.from}</td>
                   <td className="px-6 py-4">{data.bloodType}</td>
-                  <td className="px-6 py-4">{data.gender}</td>
-                  <td className="px-6 py-4">{data.age}</td>
-                  <td className="px-6 py-4">{data.phoneNumber}</td>
+                  <td className="px-6 py-4">{data.units}</td>
+                  <td className="px-6 py-4">{data.district}</td>
+                  <td className="px-6 py-4">{data.region}</td>
+                  <td className="px-6 py-4">{data.other}</td>
 
                   <td className="px-6 flex gap-2 py-4 cursor-pointer">
                     <p>✅</p>
                     <p onClick={() => handleDelete(data.id)}>❌</p>
                   </td>
                 </tr>
-              ))} */}
+              ))}
             </tbody>
           </table>
         </div>

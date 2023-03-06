@@ -35,6 +35,7 @@ const DonerInputs = () => {
         console.error(err);
       });
   };
+
   return (
     <div>
       <div className="bg-[#8D0808]/0 backdrop-blur-sm mt-8 rounded-2xl">

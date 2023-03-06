@@ -61,7 +61,7 @@ const Cards = () => {
               {data.type}
             </h1>
 
-            <div className="flex justify-between text-xs font-medium underline text-[#B6B7BC]">
+            <div className="flex px-3 justify-between text-xs font-medium underline text-[#B6B7BC]">
               <p>Type</p>
               <p>{data.unit}L</p>
               <p>{data.av}</p>
