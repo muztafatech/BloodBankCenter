@@ -74,7 +74,7 @@ const blooddoners = () => {
                 </th>
 
                 <th scope="col" className="px-6 py-3">
-                  Age
+                  Unit
                 </th>
 
                 <th scope="col" className="px-6 py-3">
